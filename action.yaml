@@ -1,0 +1,35 @@
+openapi: 3.0.0
+info:
+  title: API ZoranGPT
+  version: 1.0.0
+servers:
+  - url: https://zorangpt-production.up.railway.app
+paths:
+  /action:
+    post:
+      summary: Action principale de ZoranGPT
+      operationId: actionZoranGPT
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                intention:
+                  type: string
+                contenu:
+                  type: string
+              required:
+                - intention
+                - contenu
+      responses:
+        '200':
+          description: Succès
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
